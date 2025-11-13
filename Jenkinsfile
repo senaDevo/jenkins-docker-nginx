@@ -33,8 +33,8 @@ pipeline {
 
         stage('Run Container') {
             steps {
-                sh "docker run --rm -d -p 8081:80 ${IMAGE_NAME}:${IMAGE_TAG}"
-                echo "Aceda a http://localhost:8081 para ver a página"
+                sh "docker run --rm -d -p 8080:80 ${IMAGE_NAME}:${IMAGE_TAG}"
+                echo "Aceda a http://localhost:8080 para ver a página"
             }
         }
     }

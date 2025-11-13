@@ -1,4 +1,3 @@
-Replace your Jenkinsfile to:
 pipeline {
   agent any
   stages {

@@ -24,26 +24,11 @@ pipeline {
         stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'my-docker-token') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials-id') {
                         docker.image("${IMAGE_NAME}:${IMAGE_TAG}").push()
                     }
                 }
             }
-        }
-
-        stage('Run Container') {
-            steps {
-                sh "docker run --rm -d -p 8080:80 ${IMAGE_NAME}:${IMAGE_TAG}"
-                echo "Aceda a http://localhost:8080 para ver a página"
-            }
-        }
-    }
-
-    post {
-        always {
-            echo 'Cleaning up Docker artifacts...'
-            sh "docker container prune -f || true"
-            sh "docker image prune -f || true"
         }
     }
 }

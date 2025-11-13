@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "gsenacosta/jenkins-training-web"
+        IMAGE_NAME = "gsenacosta/jenkins-docker-nginx"
         IMAGE_TAG  = "latest"
     }
 
